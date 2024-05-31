@@ -1,0 +1,63 @@
+{% load static %}
+<html>
+<head>
+<title>Fake News Articles Detection Using NLP</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1>Classifying Fake News Articles Using Natural
+Language Processing to Identify In-Article
+Attribution as a Supervised Learning Estimator</h1>
+		</div>
+		<div id="slogan">
+
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+      <li><a href="{% url 'ChngPassword' %}">ChangePassword</a></li>
+            <li><a href="{% url 'addnews1' %}">Add News Articles</a></li>
+			   <li><a href="{% url 'ViewNews1' %}">View News Articles</a></li>
+      <li><a href="{% url 'admin' %}">Logout</a></li>
+   </ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.JPG' %}" width="1420" height="250" alt="" />
+	</div>
+	<br/>
+	 <center><font face="verdana" color="red">{{ data }}</font></center>
+	 <br/>
+<div class="m-3">
+<table border="1" style="width:1520px;">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Date_time</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+    </thead>
+    {% for x in news %}
+    <tbody>
+    <tr>
+        <td>{{x.title}}</td>
+        <td>{{x.description}}</td>
+        <td><img src="{{x.image.url}}" height="150px" width="150px"></td>
+        <td>{{x.date_time}}</td>
+        <td>
+            <a href="{% url 'edit_news' id=x.id %}">Update</a>
+        </td>
+        <td><a href="{% url 'delete' id=x.id %}" onclick="return confirm('Really Do You Want To Delete?')">Delete</a></td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+</div>

@@ -1,0 +1,46 @@
+{% load static %}
+<html>
+<head>
+<title>Fake News Articles Detection Using NLP</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1>Classifying Fake News Articles Using Natural
+Language Processing to Identify In-Article
+Attribution as a Supervised Learning Estimator</h1>
+		</div>
+		<div id="slogan">
+
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+      <li><a href="{% url 'UploadNews' %}">Upload News Articles</a></li>
+            <li><a href="{% url 'addnews' %}">Add News Articles</a></li>
+			<li><a href="{% url 'ViewNews' %}">View News Articles</a></li>
+      <li><a href="{% url 'DetectorAlgorithm' %}">Run Fake News Detector Algorithm</a></li>
+      <li><a href="{% url 'index' %}">Logout</a></li>
+   </ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.JPG' %}" width="1420" height="250" alt="" />
+	</div>
+	<br/>
+	 <center><font face="verdana" color="red">{{ data }}</font></center>
+	 <br/>
+	<form method="post" action="{% url 'addnews' %}">
+		{% csrf_token %}
+	<div class="col-lg-6 form-group">
+		<center>
+			 <textarea name="text_data" placeholder="Enter News" rows="5" cols="50" ></textarea></center>
+
+	</div>
+	<center><br><button class="genric-btn primary circle mt-30 " style="padding:4px 8px;" >Add News</button></center>
+		</form>
+	{{msg}}
+</div>

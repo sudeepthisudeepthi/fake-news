@@ -1,0 +1,66 @@
+{% load static %}
+<html>
+<head>
+<title>Fake News Articles Detection Using NLP</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1>Classifying Fake News Articles Using Natural
+Language Processing to Identify In-Article
+Attribution as a Supervised Learning Estimator</h1>
+		</div>
+		<div id="slogan">
+
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+      <li><a href="{% url 'UploadNews' %}">Upload News Articles</a></li>
+            <li><a href="{% url 'addnews' %}">Add News Articles</a></li>
+			<li><a href="{% url 'ViewNews' %}">View News Articles</a></li>
+      <li><a href="{% url 'DetectorAlgorithm' %}">Run Fake News Detector Algorithm</a></li>
+      <li><a href="{% url 'index' %}">Logout</a></li>
+   </ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.JPG' %}" width="1420" height="250" alt="" />
+	</div>
+	<br/>
+	 <center><font face="verdana" color="red">{{ data }}</font></center>
+	 <br/>
+</div>
+	<div class="container">
+					<div class="row">
+
+
+						<div class="col-lg-8">
+                           <form method = 'POST'>
+	                        {% csrf_token %}
+	                       <div class="row">
+									<div class="col-lg-6 form-group">
+										<label>user name: </label>
+                                        <input name="name" placeholder="Enter your name" class="common-input mb-20 form-control" required="" type="text">
+                                        <label>email: </label>
+										<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="common-input mb-20 form-control" required="" type="email">
+                                        <label>password: </label>
+										<input name="password" placeholder="Enter your password" class="common-input mb-20 form-control" required="" type="text">
+										<label>phno: </label>
+										<input name="phno" placeholder="Enter your phno" class="common-input mb-20 form-control" required="" type="number">
+										<label>address: </label>
+										<input name="address" placeholder="Enter your address" class="common-input mb-20 form-control" required="" type="text">
+										<label>pincode: </label>
+										<input name="pincode" placeholder="Enter your pincode" class="common-input mb-20 form-control" required="" type="number">
+
+
+  										<button class="genric-btn primary circle mt-30" style="float: center;">register</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>

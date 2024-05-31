@@ -1,0 +1,50 @@
+{% load static %}
+<html>
+<head>
+<title>Fake News Articles Detection Using NLP</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1>Classifying Fake News Articles Using Natural
+Language Processing to Identify In-Article
+Attribution as a Supervised Learning Estimator</h1>
+		</div>
+		<div id="slogan">
+
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+      <li><a href="{% url 'ChngPassword' %}">ChangePassword</a></li>
+            <li><a href="{% url 'addnews1' %}">Add News Articles</a></li>
+			   <li><a href="{% url 'ViewNews1' %}">View News Articles</a></li>
+      <li><a href="{% url 'admin' %}">Logout</a></li>
+   </ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.JPG' %}" width="1420" height="250" alt="" />
+	</div>
+	<br/>
+	 <center><font face="verdana" color="red">{{ data }}</font></center>
+	 <br/>
+  <form method="post" action ="{% url 'update_news' %}">
+    {% csrf_token %}
+    <div class="col-lg-6 form-group">
+    <center>
+		<label>Id: </label>
+	<input name="id" type="number" value="{{x.id}}"><br>
+		<label>Title: </label>
+	<input name="title" placeholder="Enter title" value="{{x.title}}" required="" type="text"><br>
+		<label>Description: </label>
+	<textarea name="description" placeholder="Text" required="" >{{x.description}}</textarea><br>
+		<label>Image: </label>
+	<input name="image" placeholder="Place Your image" class="common-input mb-20 form-control" type="file"><br>
+		<input type="submit" value="Add" class="btn btn-primary">
+	</center></div>
+  </form>
+</div>

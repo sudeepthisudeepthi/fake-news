@@ -1,0 +1,75 @@
+{% load static %}
+<html>
+<head>
+<title>Fake News Articles Detection Using NLP</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" media="screen" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter User ID");
+	formObj.t1.focus();
+	return false;
+	}
+	if(formObj.t2.value.length==0)
+	{
+	alert("Please Enter Password");
+	formObj.t2.focus();
+	return false;
+	}
+	formObj.actionUpdateData.value="update";
+	return true;
+	}
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1>Classifying Fake News Articles Using Natural
+Language Processing to Identify In-Article
+Attribution as a Supervised Learning Estimator</h1>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'Login' %}">User</a></li>
+			<li><a href="{% url 'admin' %}">Admin</a></li>
+      
+   </ul>				<br class="clearfix" />
+				</div>
+			
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.JPG' %}" width="870" height="230" alt="" />
+	</div>	
+			<center>
+<form name="f1" method="post" action="{% url 'AdminLogin' %}" onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>User Login Screen</b></h2>
+
+   <center><font face="verdana" color="red">{{ data }}</font></center>
+   
+					
+						<div align="center" width="40" style="padding:10px;" >
+							<label>Username: </label>
+								<input name="email" placeholder="Enter username" type="text"><br>
+                                        <label>password: </label>
+											<input name="password" placeholder="Enter your password" type="password"></br>
+
+			</div>
+	<button class="btn btn-primary" style="padding:4px 10px">login</button>
+	<button class="genric-btn primary circle mt-30" style="padding:4px 10px" > <a href="{% url 'userreg' %}">register</a></button>
+</form>
+			</center>
+
+				</div>	
+
+				
+	</body>
+</html>
